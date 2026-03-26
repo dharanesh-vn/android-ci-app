@@ -1,36 +1,31 @@
 pipeline {
     agent any
 
-    environment {
-        ANDROID_HOME = "/home/roronoa/Android/Sdk"
-        PATH = "$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin"
+    tools {
+        jdk 'jdk17'   // optional if configured
     }
 
     stages {
 
-        stage('Checkout Source') {
+        stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-username/android-ci-app.git', branch: 'main'
+                git 'https://github.com/dharanesh-vn/android-ci-app.git'
             }
         }
 
-        stage('Build Android App') {
+        stage('Build') {
             steps {
-                sh './gradlew assembleDebug'
+                sh 'chmod +x gradlew'
+                sh './gradlew build'
             }
         }
 
-        stage('Run Tests') {
+        stage('SonarQube Analysis') {
             steps {
-                sh './gradlew test'
+                withSonarQubeEnv('My Sonar Server') {
+                    sh './gradlew sonarqube'
+                }
             }
         }
-
-        stage('Archive APK') {
-            steps {
-                archiveArtifacts artifacts: 'app/build/outputs/**/*.apk'
-            }
-        }
-
     }
 }
