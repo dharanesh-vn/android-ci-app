@@ -1,26 +1,11 @@
 plugins {
-    id 'com.android.application'
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
-android {
-    namespace "com.example.hello"
-    compileSdk 34
-
-    defaultConfig {
-        applicationId "com.example.hello"
-        minSdk 21
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
+sonarqube {
+    properties {
+        property "sonar.projectKey", "android-ci-app"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "squ_41eb15b3211799f212d6a94bc49f837588e40318"
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
 }

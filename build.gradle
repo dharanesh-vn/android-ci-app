@@ -1,14 +1,7 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Top-level build file
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:8.1.0"
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373"
-    }
+plugins {
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
 allprojects {
@@ -17,9 +10,6 @@ allprojects {
         mavenCentral()
     }
 }
-
-// Apply SonarQube plugin
-apply plugin: "org.sonarqube"
 
 // SonarQube configuration
 sonarqube {
@@ -31,7 +21,6 @@ sonarqube {
     }
 }
 
-// Clean task
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
