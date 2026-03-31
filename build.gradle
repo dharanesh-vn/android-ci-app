@@ -8,7 +8,13 @@ sonarqube {
         property "sonar.projectName", "Android CI App"
         property "sonar.host.url", "http://localhost:9000"
 
-        // 🔥 THIS LINE FIXES YOUR ERROR
-        property "sonar.login", System.getenv("SONAR_AUTH_TOKEN")
+        // ✅ FIX AUTH (modern way)
+        property "sonar.token", System.getenv("SONAR_AUTH_TOKEN")
+
+        // ✅ VERY IMPORTANT (fix your issue)
+        property "sonar.sources", "app/src/main/java"
+
+        // Optional but good
+        property "sonar.java.binaries", "app/build"
     }
 }
