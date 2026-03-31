@@ -1,26 +1,14 @@
-// Top-level build file
-
 plugins {
     id "org.sonarqube" version "4.4.1.3373"
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-// SonarQube configuration
 sonarqube {
     properties {
         property "sonar.projectKey", "android-ci-app"
         property "sonar.projectName", "Android CI App"
         property "sonar.host.url", "http://localhost:9000"
-        property "sonar.login", "squ_41eb15b3211799f212d6a94bc49f837588e40318"
-    }
-}
 
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+        // 🔥 THIS LINE FIXES YOUR ERROR
+        property "sonar.login", System.getenv("SONAR_AUTH_TOKEN")
+    }
 }
