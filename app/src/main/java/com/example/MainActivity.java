@@ -1,9 +1,24 @@
-public void insecureMethod() {
-    String apiKey = "1234567890SECRET"; // Hardcoded secret (Vulnerability)
+package com.example;
 
-    try {
-        int x = 10 / 0; // Runtime issue
-    } catch (Exception e) {
-        // Empty catch block (Code smell)
+public class MainActivity {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+
+    public void badCode() {
+
+        // 🔴 Vulnerability
+        String password = "admin123";
+
+        // 🔴 Code smell
+        try {
+            int x = 10 / 0;
+        } catch (Exception e) {
+        }
+
+        // 🔴 Bug
+        String s = null;
+        s.length();
     }
 }

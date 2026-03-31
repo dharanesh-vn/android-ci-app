@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+    id 'java'
+    id "org.sonarqube" version "4.4.1.3373"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'com.example.App'
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "test-sonar"
+        property "sonar.projectName", "test-sonar"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.sourceEncoding", "UTF-8"
+
+        // IMPORTANT FIX
+        property "sonar.java.binaries", "build/classes/java/main"
+    }
+}

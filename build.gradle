@@ -1,20 +1,20 @@
 plugins {
+    id 'java'
     id "org.sonarqube" version "4.4.1.3373"
+}
+
+group = 'com.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
 }
 
 sonarqube {
     properties {
         property "sonar.projectKey", "android-ci-app"
-        property "sonar.projectName", "Android CI App"
         property "sonar.host.url", "http://localhost:9000"
-
-        // ✅ FIX AUTH (modern way)
-        property "sonar.token", System.getenv("SONAR_AUTH_TOKEN")
-
-        // ✅ VERY IMPORTANT (fix your issue)
         property "sonar.sources", "app/src/main/java"
-
-        // Optional but good
         property "sonar.java.binaries", "app/build"
     }
 }
