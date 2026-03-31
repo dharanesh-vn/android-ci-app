@@ -1,21 +1,19 @@
-package org.example;
+package com.example;
 
-public class App {
-
-    // CRITICAL SECURITY ISSUE (will trigger vulnerability)
-    private static final String PASSWORD = "admin123";
+public class MainActivity {
 
     public static void main(String[] args) {
 
-        // CRITICAL BUG (division by zero)
-        int result = 10 / 0;
+        int a = 10;
+        int b = 2;
 
         try {
-            System.out.println("Testing SonarQube");
-        } catch (Exception e) {
-            // EMPTY CATCH (code smell)
+            int result = a / b;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero");
         }
 
-        System.out.println("Password is: " + PASSWORD);
+        System.out.println("Hello Clean Code");
     }
 }
