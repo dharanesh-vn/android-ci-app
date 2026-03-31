@@ -2,5 +2,5 @@ projectKey=android-ci-app
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
 dashboardUrl=http://localhost:9000/dashboard?id=android-ci-app
-ceTaskId=fa9d6e89-b185-4a16-9195-138bb1c6499f
-ceTaskUrl=http://localhost:9000/api/ce/task?id=fa9d6e89-b185-4a16-9195-138bb1c6499f
+ceTaskId=f89159cd-3ef6-4229-b357-1ec27aebf8ec
+ceTaskUrl=http://localhost:9000/api/ce/task?id=f89159cd-3ef6-4229-b357-1ec27aebf8ec
