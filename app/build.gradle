@@ -5,14 +5,9 @@ sonar {
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.sourceEncoding", "UTF-8"
 
-        // ✅ FIXED PATHS
         property "sonar.sources", "src/main/java"
-        property "sonar.tests", "src/test/java"
-
-        // ✅ IMPORTANT FIX
         property "sonar.java.binaries", "build/classes/java/main"
 
-        // ✅ EXCLUDE ANDROID FILE (causing conflict)
         property "sonar.exclusions", "**/MainActivity.java"
     }
 }
